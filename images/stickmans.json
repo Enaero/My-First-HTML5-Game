@@ -1,0 +1,30 @@
+{"frames": {
+
+"stickman.jpg":
+{
+	"frame": {"x":2,"y":2,"w":212,"h":216},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":216},
+	"sourceSize": {"w":212,"h":216},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"stickman2.jpg":
+{
+	"frame": {"x":216,"y":2,"w":212,"h":216},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":216},
+	"sourceSize": {"w":212,"h":216},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "stickmans.png",
+	"format": "RGBA8888",
+	"size": {"w":430,"h":220},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:73974c7ae6ce4c6edb8d12794a471b8b:03b4c79f84b62dbf6561c84078268fb4:c7ba3f148b4a6c627940e06d3c06c379$"
+}
+}

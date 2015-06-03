@@ -1,20 +1,26 @@
 var canvas = null;
 var context = null;
+var spritesheet = null;
 var frameRate = 1000/30;
 var frame = 0;
-var frames = [];
-var assets = [  "images/stickman.jpg",
-                "images/stickman2.jpg"  ];
 
-
-function onImageLoad() {
-    console.log("Image loaded");
+var assets = { 
+    "bingy": {
+        "image": "images/bingy.png",
+        "json": "images/bingy.json"
+    } 
 }
 
 function animate() {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(frames[frame++], 0, 0);
-    frame = frame%frames.length;
+    spritesheet.drawFrame(context, frame, 192, 192);
+    frame = (1+frame)%spritesheet.getNumFrames();
+}
+
+function onFinishLoad(event)
+{
+    console.log("All images loaded.");
+    setInterval(animate, frameRate);
 }
 
 function setup() {
@@ -27,25 +33,11 @@ function setup() {
     
     body.appendChild(canvas);
     
-    console.log("Loading images . . .");
-
-    for (var i in assets) {
-        var my_image = new Image();
-        my_image.onload = onImageLoad;
-        my_image.src = assets[i];
-        frames.push(my_image);
-    }
-
-    for (var i = 0; i < frames.length;)
-    {
-        if (frames[i].complete)
-            i = i + 1;
-    }
-
-    console.log("All images loaded.");
-
-    var i = 0;
-    setInterval(animate, frameRate);
+    console.log("Loading . . .");
+    
+    spritesheet = new SpriteSheet(assets.bingy.json, assets.bingy.image, "ss");
+    
+    document.addEventListener(spritesheet.getEventName(), onFinishLoad, false);
 }
 
 setup();

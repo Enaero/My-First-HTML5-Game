@@ -36,17 +36,13 @@ function SpriteSheet(jsonFile, imageFile, name) {
     image.src = imageFile;
     
     
-    this.drawFrame = function(context, frameIndex, dx, dy, dw = 0, dh = 0)
+    this.drawFrame = function(context, frameIndex, dx, dy, dw, dh )
     {
         if (frameIndex >= frames.length)
             return;
         
-        if (dw === 0) {
-            dw = frames[frameIndex].w;
-        }
-        if (dh === 0) {
-            dh = frames[frameIndex].h;
-        }
+        dw = dw || frames[frameIndex].w;
+        dh = dh || frames[frameIndex].h;
         
         var frame = frames[frameIndex];
         context.drawImage(image, 
